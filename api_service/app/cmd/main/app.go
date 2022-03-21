@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"github.com/alonelegion/notes_system/api_service/app/internal/router"
+	"github.com/alonelegion/notes_system/api_service/app/pkg/logging"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	logging.Init()
+	logger := logging.GetLogger()
+	logger.Println("logger initialized")
+
+	defer router.Init()
+
+	logger.Print("application initialized and started")
 }
